@@ -18,7 +18,7 @@
     }
   ],
   "dependencies": {
-    "node-build-script": "http://nodeload.github.com/h5bp/node-build-script/tarball/dev"
+    "node-build-script": "https://github.com/h5bp/node-build-script/tarball/master"
   },
   "keywords": []
 }
