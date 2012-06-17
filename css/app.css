@@ -1,0 +1,39 @@
+body > :not(header),
+header > p {
+	display: none;
+}
+
+header {
+}
+header h1 {
+	color: rgb(181, 135, 240);
+	text-shadow: 3px 3px 2px rgba(35, 11, 77, 0.2);
+	font-family: LeagueGothicRegular, serif;
+	font-size: 48pt;
+	margin-top: 100px;
+	text-align: center;
+}
+header p {
+}
+header h1 {
+}
+
+article {
+}
+article aside {
+}
+article aside p {
+}
+article h2 {
+}
+article p {
+}
+article button {
+}
+article button a {
+}
+
+footer p {
+}
+footer p a {
+}

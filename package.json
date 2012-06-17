@@ -1,5 +1,5 @@
 {
-  "name": "CFSG",
+  "name": "cfsg-site",
   "description": "Homepage",
   "version": "0.1.0",
   "homepage": "http://www.cofounders.sg/",
@@ -14,11 +14,12 @@
   "licenses": [
     {
       "type": "GPL3",
-      "url": "http://www.cofounders.sg//blob/master/LICENSE-GPL3"
+      "url": "http://www.gnu.org/licenses/gpl.html"
     }
   ],
   "dependencies": {
-    "node-build-script": "https://github.com/h5bp/node-build-script/tarball/master"
+    "node-build-script": "https://github.com/h5bp/node-build-script/tarball/master",
+    "stylus": "*"
   },
   "keywords": []
 }

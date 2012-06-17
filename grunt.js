@@ -1,14 +1,21 @@
 module.exports = function(grunt) {
 
+	grunt.loadTasks("grunt-stylus");
+
 	grunt.initConfig({
 
 		pkg: '<json:package.json>',
 
-		staging: 'intermediate/',
+		staging: 'intermediate',
 
-		output: 'publish/',
+		output: 'publish',
 
 		exclude: '.git* build/** node_modules/** grunt.js package.json *.md'.split(' '),
+
+		clean: {
+			staging: ['<config:staging>'],
+			output: ['<config:output>']
+		},
 
 		mkdirs: {
 			staging: '<config:exclude>'
@@ -17,18 +24,31 @@ module.exports = function(grunt) {
 		concat: {
 			dist: {
 				src: ['js/plugins.js', 'js/main.js'],
-				dest: 'js/CFSG-0.1.0.js'
+				dest: 'js/merged.js'
+			}
+		},
+
+		stylus: {
+			file: {
+				src: 'css/**/*.styl',
+				dest: 'css'
 			}
 		},
 
 		css: {
-			'css/style.css': ['css/**/*.css']
+			'css/style.css': ['css/main.css']
 		},
 
 		rev: {
 			js: 'js/**/*.js',
 			css: 'css/**/*.css',
-			img: 'img/**'
+			img: 'img/**',
+			fonts: [
+				'fonts/**/*.eot',
+				'fonts/**/*.svg',
+				'fonts/**/*.ttf',
+				'fonts/**/*.woff'
+			]
 		},
 
 		usemin: {
@@ -50,11 +70,10 @@ module.exports = function(grunt) {
 
 		meta: {
 			version: '0.1.0',
-			banner:
-				'/*! <%= meta.name %> - v<%= pkg.version %> - <%= grunt.template.today("m/d/yyyy") %>\n' +
-				'* <%= pkg.homepage %>\n' +
-				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-				' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
+			banner: '/*! <%= meta.name %> - v<%= pkg.version %> - <%= grunt.template.today("m/d/yyyy") %>\n'
+				+ '* <%= pkg.homepage %>\n'
+				+ '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;'
+				+ ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
 		},
 
 		lint: {
@@ -67,13 +86,14 @@ module.exports = function(grunt) {
 
 		min: {
 			dist: {
-				src: 'js/CFSG-0.1.0.js',
-				dest: 'js/main.js'
+				src: 'js/merged.js',
+				dest: 'js/build.js'
 			}
 		}
 
 	});
 
-	grunt.registerTask('default', 'intro clean qunit mkdirs concat css min rev usemin manifest html img copy');
+	//grunt.loadNpmTasks('grunt-contrib');
+	grunt.registerTask('default', 'intro clean qunit mkdirs concat stylus css min rev usemin manifest html img copy');
 
 };
