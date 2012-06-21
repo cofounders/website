@@ -15,15 +15,19 @@ module.exports = function(grunt) {
       var str = grunt.file.read(fileName);
       var newFileName = fileName.match(/(\w+)\.styl/)[1] + ".css";
       var newFilePath = dest + "/" + newFileName;
-      stylus.render(str, {filename: newFileName}, function(err, css){
-        if (err) {
-          fail.warn(err.message);
+      stylus(str)
+        .include(dest)
+        .set("filename", newFileName)
+        .render(function(err, css){
+          if (err) {
+            grunt.warn(err.message);
+          }
+          else {
+            grunt.file.write(newFilePath, css);
+            grunt.log.writeln("File \"" + newFilePath + "\" created.");
+          }
         }
-        else {
-          grunt.file.write(newFilePath, css);
-          grunt.log.writeln("File \"" + newFilePath + "\" created.");
-        }
-      });
+      );
     });
   });
 
