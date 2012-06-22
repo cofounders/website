@@ -1,18 +1,32 @@
 @import mixins
 
 body > :not(header)
-header > p
 	display none
 
-header h1
-	color rgb(0, 0, 0)
-	font-family 'League Gothic CFSG', serif
-	font-size 80px
-	font-weight 100
-	margin-top 50px
-	text-align center
-	text-transform uppercase
-	margin 50px auto
-
-	span
-		text-transform lowercase
+header
+	h1
+		color rgb(0, 0, 0)
+		font-family 'League Gothic CFSG', serif
+		font-size 80px
+		font-weight 100
+		margin 50px 0 -15px 0
+		text-align center
+		text-transform uppercase
+		span
+			text-transform lowercase
+	cite
+		display block
+		font-style normal
+		font-weight bold
+		text-align center
+		text-transform uppercase
+		p
+			display inline-block
+			font-family 'Gentium Book Basic', serif
+			margin 0
+		p:before
+			content "\00B7 "
+			margin 0 5px 0 2px
+		p:last-of-type:after
+			content "\00B7 "
+			margin 0 2px 0 5px
