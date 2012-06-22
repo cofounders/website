@@ -10,3 +10,10 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'League Gothic CFSG';
+	src: url('../fonts/LeagueGothic-CFSG.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
