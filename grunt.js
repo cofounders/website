@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
 		stylus: {
 			file: {
-				src: 'css/**/*.styl',
+				src: 'css/app.styl',
 				dest: 'css'
 			}
 		},
