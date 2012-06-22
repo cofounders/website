@@ -17,7 +17,7 @@ header
 	ol
 		display block
 		font-style normal
-		font-weight bold
+		font-weight normal
 		margin 0
 		padding 0
 		text-align center
@@ -26,9 +26,13 @@ header
 			display inline-block
 			font-family 'Gentium Book Basic', serif
 			margin 0
-		li:before
+		li:before,
+		li:last-of-type:after
+			font-size 30px
 			content "\00B7 "
+			display inline-block
+			line-height 0.2
+		li:before
 			margin 0 5px 0 2px
 		li:last-of-type:after
-			content "\00B7 "
 			margin 0 2px 0 5px
