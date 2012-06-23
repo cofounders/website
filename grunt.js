@@ -53,11 +53,13 @@ module.exports = function(grunt) {
 
 		usemin: {
 			css: ['**/*.css'],
-			html: ['**/*.html'],
-			files: ['**/*.html']
+			html: ['**/*.html']
 		},
 
-		html: '<config:usemin>',
+		html: {
+			files: '<config:usemin.html>',
+			type: 'basics'
+		},
 
 		img: {
 			dist: '<config:rev.img>'
