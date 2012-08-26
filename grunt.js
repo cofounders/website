@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
 		output: 'publish',
 
-		exclude: '.git* build/** node_modules/** grunt.js package.json *.md'.split(' '),
+		exclude: '.git* build/** node_modules/** grunt-stylus grunt.js package.json *.md'.split(' '),
 
 		clean: {
 			staging: ['<config:staging>'],
@@ -23,25 +23,28 @@ module.exports = function(grunt) {
 
 		concat: {
 			dist: {
-				src: ['js/plugins.js', 'js/main.js'],
+				src: [
+//					'js/plugins.js',
+//					'js/main.js'
+				],
 				dest: 'js/merged.js'
 			}
 		},
 
 		stylus: {
 			file: {
-				src: 'css/app.styl',
-				dest: 'css'
+				src: 'styles/app.styl',
+				dest: 'styles'
 			}
 		},
 
 		css: {
-			'css/style.css': ['css/main.css']
+			'styles/app.css': ['styles/app.css']
 		},
 
 		rev: {
-			js: 'js/**/*.js',
-			css: 'css/**/*.css',
+//			js: 'js/**/*.js',
+			css: 'styles/app.css',
 			img: 'img/**',
 			fonts: [
 				'fonts/**/*.eot',
@@ -53,7 +56,7 @@ module.exports = function(grunt) {
 
 		usemin: {
 			css: ['**/*.css'],
-			html: ['**/*.html']
+			html: ['index.html']
 		},
 
 		html: {
@@ -91,11 +94,27 @@ module.exports = function(grunt) {
 				src: 'js/merged.js',
 				dest: 'js/build.js'
 			}
+		},
+
+		rjs: {
+			appDir: '.',
+			baseUrl: 'js',
+			dir: 'appdirectory-build',
+			modules: [{
+				name: 'main',
+				exclude: 'Backbone Facebook jQuery Mustache Underscore'.split(' ')
+			}],
+			paths: {
+				Backbone: 'empty:',
+				Facebook: 'empty:',
+				jQuery: 'empty:',
+				Mustache: 'empty:',
+				Underscore: 'empty:'
+			}
 		}
 
 	});
 
-	//grunt.loadNpmTasks('grunt-contrib');
 	grunt.registerTask('default', 'intro clean qunit mkdirs concat stylus css min rev usemin manifest html img copy');
 
 };

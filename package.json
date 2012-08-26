@@ -1,25 +1,25 @@
 {
-  "name": "cfsg-site",
-  "description": "Homepage",
-  "version": "0.1.0",
-  "homepage": "http://www.cofounders.sg/",
-  "author": {
-    "name": "Cofounders Pte Ltd",
-    "email": "team@cofounders.sg"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/cofounders/website.git"
-  },
-  "licenses": [
-    {
-      "type": "GPL3",
-      "url": "http://www.gnu.org/licenses/gpl.html"
-    }
-  ],
-  "dependencies": {
-    "node-build-script": "https://github.com/h5bp/node-build-script/tarball/master",
-    "stylus": "*"
-  },
-  "keywords": []
+	"name": "cfsg-website",
+	"description": "Cofounders.sg Website",
+	"version": "0.2.0",
+	"homepage": "http://www.cofounders.sg/",
+	"author": {
+		"name": "Sebastiaan Deckers",
+		"email": "seb@cofounders.sg"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/cofounders/website.git"
+	},
+	"licenses": [
+		{
+			"type": "GPL3",
+			"url": "http://www.gnu.org/licenses/gpl.html"
+		}
+	],
+	"dependencies": {
+		"node-build-script": "https://github.com/h5bp/node-build-script/tarball/master",
+		"stylus": "*"
+	},
+	"keywords": []
 }
