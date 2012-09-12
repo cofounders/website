@@ -1,11 +1,19 @@
 @import mixins
 
+//Awesome Color Palette
+$red = #a62936
+$orange = #cc671f
+$yellow = #e3af0e
+$green = #92ac17
+$blue = #2eb1ce
+$purple = #81479f
+
+html
+body
+	height 100%
+		
 header
-	background:
-		url(../img/photo_overlay.png),
-		url(../img/ingenuity_30.jpg) center bottom no-repeat
 	color #222
-	height 780px
 	overflow hidden
 	h1
 		font-family 'League Gothic CFSG', serif
@@ -59,3 +67,42 @@ header
 			font-style inherit
 			font-weight inherit
 			padding 0 20px
+
+section
+	background-attachment fixed
+	background-position center center
+	border-top-style solid
+	border-top-width 3px
+	height 100%	
+
+	section-highlights(color)
+		border-top-color color
+		color color
+	
+	&.intro
+		background-image url(../img/bg_ingenuity.jpg)
+		background-repeat no-repeat
+		border none
+	&.about
+		background-image url(../img/bg_white.jpg)
+		section-highlights($orange)
+	&.discover
+		background-image url(../img/bg_blue.jpg)
+		section-highlights($purple)
+	&.design
+		background-image url(../img/bg_purple.jpg)
+		section-highlights($green)
+	&.develop
+		background-image url(../img/bg_red.jpg)
+		section-highlights($yellow)
+	&.support
+		background-image url(../img/bg_mvp.jpg)
+		background-repeat no-repeat
+		section-highlights($red)
+	&.team
+		background-image url(../img/bg_white.jpg)
+		section-highlights($purple)
+	&.contact
+		background-image url(../img/bg_team.jpg)
+		background-repeat no-repeat
+		section-highlights($orange)
