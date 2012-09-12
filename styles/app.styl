@@ -1,17 +1,17 @@
-@import mixins
+@import 'fonts'
 
-//Awesome Color Palette
-$red = #a62936
-$orange = #cc671f
-$yellow = #e3af0e
-$green = #92ac17
-$blue = #2eb1ce
-$purple = #81479f
+@import 'mixins/malarkey'
+@import 'mixins/nib'
 
-html
+@import 'mixins/normalize'
+global-normalize()
+
+@import 'variables'
+
+html,
 body
 	height 100%
-		
+
 header
 	color #222
 	overflow hidden
@@ -81,12 +81,22 @@ section
 	background-position center center
 	border-top-style solid
 	border-top-width 3px
-	height 100%	
+	height 100%
+
+	> p
+		font-family 'Gentium Book Basic', serif
+		font-size 48px
+		font-style normal
+		font-weight normal
+		line-height 1.28
+		padding 0 20px
+		text-align center
+		background-color rgba(116, 74, 0, 0.4)
 
 	section-highlights(color)
 		border-top-color color
 		color color
-	
+
 	&.intro
 		background-image url(../img/bg_ingenuity.jpg)
 		background-repeat no-repeat
