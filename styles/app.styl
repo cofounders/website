@@ -47,7 +47,7 @@ h2
 	
 p
 	color lighten($black,50%)
-	font-size 1.2em
+	font-size 1.3em
 
 // header
 // 	color #222
@@ -105,18 +105,19 @@ p
 // 			font-weight inherit
 // 			padding 0 20px
 
+.clear
+	clear both
+
 header
-	padding 1em 0
-	position absolute
+	margin 1em 0
+	position relative
 	width 100%
 	
 	> div
-		clear both
 		margin 0 auto
-		max-width 1400px
-		width 80%
+		width 90vw
 	
-	h1
+	h1.logo
 		border 3px solid #000
 		float left
 		font-size 3.5em
@@ -127,13 +128,11 @@ header
 			text-transform lowercase
 	
 	nav
-		height 100%
 		float right		
 		a
-
 			font-family LeagueGothicRegular, sans-serif
 			font-size 1.5em
-			line-height 3.5em
+			line-height 3.2em
 			margin 0 0.5em
 			vertical-align middle
 			text-decoration none
@@ -147,19 +146,40 @@ section
 	background-position center 60%
 	border-top-style solid
 	border-top-width 3px
+	box-sizing border-box
 	min-height 100%
 	overflow hidden
-	position relative
 
 	article
-		margin 8em auto 0
-		max-width 1280px
+		margin 3em auto 0
 		position relative
-		width 70%
+		width 85vw
 		
 		h2
 			font-size 4.5em
 			font-weight normal
+			margin 0
+		
+		.content
+			width 42vw
+		
+		figure
+			height 100%
+			position absolute
+			right 0
+			top 0
+			width 42vw
+		
+			.circle
+				height 21vw
+				border rgba(255,255,255,0.2) solid 10px
+				border-radius 50%
+				-moz-border-radius 50%
+				-webkit-border-radius 50%
+				position absolute
+				text-align center
+				vertical-align middle
+				width 21vw
 
 	&.intro
 		border none
@@ -168,21 +188,65 @@ section
 	&.about
 		color-palette($orange, $black, $orange, lighten($black,50%), $orange)
 		slide('../img/bg_white.jpg')
+		h2
+			text-align center
+		p
+			text-align center
 	&.discover
 		color-palette($purple, $white, $purple, $white, $purple)
 		slide('../img/bg_blue.jpg')
+		.circle
+			&.a
+				background-image url(../img/bg_green.jpg)
+				left 0
+			&.b
+				background-image url(../img/bg_orange.jpg)
+				right 0
+			&.c
+				background-image url(../img/bg_purple.jpg)
+				left 10.5vw
+				top 15.75vw				
 	&.design
 		color-palette($green, $white, $green, $white, $green)
 		slide('../img/bg_purple.jpg')
+		.circle
+			&.a
+				background-image url(../img/bg_blue.jpg)
+				left 10.5vw
+			&.b
+				background-image url(../img/bg_yellow.jpg)
+				right 0
+				top 15.75vw
+			&.c
+				background-image url(../img/bg_green.jpg)
+				left 0
+				top 15.75vw
 	&.develop
 		color-palette($yellow, $white, $yellow, $white, $yellow)
 		slide('../img/bg_red.jpg')
+		.circle
+			&.a
+				background-image url(../img/bg_purple.jpg)
+				left 0
+			&.b
+				background-image url(../img/bg_orange.jpg)
+				right 0
+			&.c
+				background-image url(../img/bg_yellow.jpg)
+				left 10.5vw
+				top 15.75vw
 	&.support
 		color-palette(lighten($black,50%),$white, $red, $white, $red)
 		slide('../img/bg_mvp.jpg', no-repeat)
+		h2
+			text-align center
 	&.team
 		color-palette($purple, $black, $purple, lighten($black,50%),$purple)
 		slide('../img/bg_white.jpg')
+		h2
+			text-align center
+		p
+			text-align center
 	&.contact
 		color-palette($orange, $white, $white, $orange, $orange)
 		slide('../img/bg_team.jpg', no-repeat)
@@ -194,7 +258,7 @@ footer
 	margin -3.5em auto 0
 	max-width 1400px
 	opacity 0.7
-	width 80%
+	width 90vw
 	
 	div
 		&.copyright
