@@ -23,7 +23,8 @@ color-palette(border, nav, heading, text, highlight)
 		h2
 			color heading
 		a
-			highlight
+			color highlight
+			text-decoration none
 		p
 			color text
 
@@ -159,6 +160,12 @@ section
 			font-size 4.5em
 			font-weight normal
 			margin 0
+			text-shadow: 1px 1px 3px  lighten($black,20%);
+			filter: dropshadow(color= lighten($black,20%), offx=1, offy=1);
+		
+		p
+			text-shadow: 1px 1px 1px lighten($black,40%);
+			filter: dropshadow(color= lighten($black,40%), offx=1, offy=1);
 		
 		.content
 			width 42vw
@@ -248,9 +255,12 @@ section
 		p
 			text-align center
 	&.contact
-		color-palette($orange, $white, $white, $orange, $orange)
+		color-palette($orange, $white, $white, lighten($orange,75%), $orange)
 		slide('../img/bg_team.jpg', no-repeat)
-
+		h2
+			margin-left 42vw
+		p
+			margin-left 42vw
 footer
 	border-top 2px solid #fff
 	color #fff
