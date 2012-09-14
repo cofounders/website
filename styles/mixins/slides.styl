@@ -1,0 +1,23 @@
+color-palette(border, nav, heading, text, highlight)
+	border-top-color border
+	header
+		h1
+			border-color nav
+			color nav
+		a
+			color nav
+			&.selected
+				color highlight
+				border-bottom-color highlight
+	article
+		h2
+			color heading
+		a
+			color highlight
+			text-decoration none
+		p
+			color text
+
+slide(bg, tile = repeat)
+	background-image url(../img/overlay.png), url(bg)
+	background-repeat repeat, tile

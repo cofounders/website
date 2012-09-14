@@ -1,5 +1,6 @@
 @import 'fonts'
 
+@import 'mixins/slides'
 @import 'mixins/malarkey'
 @import 'mixins/nib'
 
@@ -8,109 +9,25 @@ global-normalize()
 
 @import 'variables'
 
-color-palette(border, nav, heading, text, highlight)
-	border-top-color border
-	header
-		h1
-			border-color nav
-			color nav
-		a
-			color nav
-			&.selected
-				color highlight
-				border-bottom-color highlight
-	article
-		h2
-			color heading
-		a
-			color highlight
-			text-decoration none
-		p
-			color text
-
-slide(bg, tile = repeat)
-	background-image url(../img/overlay.png), url(bg)
-	background-repeat repeat, tile
-
 html,
 body
 	font-family 'Gentium Book Basic', serif
 	font-weight 100
+	font-size: 110%
 	height 100%
 
-h1
-	font-family 'League Gothic CFSG', sans-serif
-	font-weight 100
-
-h2
-	font-family LeagueGothicRegular, sans-serif
-	font-weight 100
+	h1
+		font-family 'League Gothic CFSG', sans-serif
+		font-weight 100
 	
-p
-	color lighten($black,50%)
-	font-size 1.3em
-
-// header
-// 	color #222
-// 	overflow hidden
-// 	h1
-// 		font-family 'League Gothic CFSG', serif
-// 		font-size 80px
-// 		font-weight 100
-// 		margin 0 0 -15px 0
-// 		padding: 25px 0 0 0
-// 		text-align center
-// 		text-transform uppercase
-// 		span
-// 			text-transform lowercase
-// 	ol
-// 		display block
-// 		font-style normal
-// 		font-size 0
-// 		font-weight normal
-// 		margin 0
-// 		padding 0
-// 		text-align center
-// 		text-transform uppercase
-// 		li
-// 			display inline-block
-// 			font-family 'Gentium Book Basic', serif
-// 			font-size 16px
-// 			margin 0
-// 		li:before,
-// 		li:last-of-type:after
-// 			content "\00B7 "
-// 			display inline-block
-// 			font-size 35px
-// 			font-weight bold
-// 			line-height 10px
-// 			overflow hidden
-// 			vertical-align middle
-// 			margin 0 4px
-// 	> p
-// 		font-family 'Gentium Book Basic', serif
-// 		font-size 48px
-// 		font-style normal
-// 		font-weight normal
-// 		line-height 1.28
-// 		margin 0 auto
-// 		padding 85px 0 0 0
-// 		width 960px
-// 		em
-// 			font-style italic
-// 			font-weight bold
-// 		mark
-// 			background-color rgba(116, 74, 0, 0.4)
-// 			color white
-// 			font-style inherit
-// 			font-weight inherit
-// 			padding 0 20px
-
-.clear
-	clear both
+	h2
+		font-family LeagueGothicRegular, sans-serif
+		font-weight 100
+	
+	.clear
+		clear both
 
 header
-	margin 1em 0
 	position relative
 	width 100%
 	
@@ -121,7 +38,7 @@ header
 	h1.logo
 		border 3px solid #000
 		float left
-		font-size 3.5em
+		font-size 3em
 		margin 0
 		padding 3px 20px 0
 		text-transform uppercase
@@ -133,9 +50,8 @@ header
 		a
 			font-family LeagueGothicRegular, sans-serif
 			font-size 1.5em
-			line-height 3.2em
+			line-height 2.7em
 			margin 0 0.5em
-			vertical-align middle
 			text-decoration none
 			text-transform uppercase
 			&.selected
@@ -144,41 +60,40 @@ header
 	
 section
 	background-attachment fixed
-	background-position center 60%
+	background-position center center
 	border-top-style solid
 	border-top-width 3px
 	box-sizing border-box
-	min-height 100%
+	height 100%
+	padding 0.5em 0
 	overflow hidden
 
 	article
-		margin 3em auto 0
+		margin 0 auto 5vh
+		min-height 60vh
 		position relative
 		width 85vw
 		
 		h2
-			font-size 4.5em
+			font-size 4em
 			font-weight normal
 			margin 0
-			text-shadow: 1px 1px 3px  lighten($black,20%);
-			filter: dropshadow(color= lighten($black,20%), offx=1, offy=1);
-		
-		p
-			text-shadow: 1px 1px 1px lighten($black,40%);
-			filter: dropshadow(color= lighten($black,40%), offx=1, offy=1);
-		
+				
 		.content
+			float right
+			position relative
 			width 42vw
 		
 		figure
-			height 100%
-			position absolute
-			right 0
-			top 0
-			width 42vw
+			float left
+			height 40vw
+			min-height 300px
+			min-width 300px
+			position relative
+			width 40vw
 		
 			.circle
-				height 21vw
+				height 50%
 				border rgba(255,255,255,0.2) solid 10px
 				border-radius 50%
 				-moz-border-radius 50%
@@ -186,12 +101,27 @@ section
 				position absolute
 				text-align center
 				vertical-align middle
-				width 21vw
+				width 50%
 
 	&.intro
+		background-size auto, cover
 		border none
 		color-palette($black, $black, $black, $white, $white)
 		slide('../img/bg_ingenuity.jpg', no-repeat)
+		h2
+			font-family 'Gentium Book Basic', serif
+			font-size 2.5em			
+			line-height 1.3em
+			margin-top 25vh
+			em
+				font-style italic
+				font-weight bold
+			mark
+				background-color rgba(116, 74, 0, 0.4)
+				color white
+				font-style inherit
+				font-weight inherit
+				padding 0 20px
 	&.about
 		color-palette($orange, $black, $orange, lighten($black,50%), $orange)
 		slide('../img/bg_white.jpg')
@@ -211,8 +141,8 @@ section
 				right 0
 			&.c
 				background-image url(../img/bg_purple.jpg)
-				left 10.5vw
-				top 15.75vw				
+				bottom 0
+				left 10vw
 	&.design
 		color-palette($green, $white, $green, $white, $green)
 		slide('../img/bg_purple.jpg')
@@ -247,6 +177,9 @@ section
 		slide('../img/bg_mvp.jpg', no-repeat)
 		h2
 			text-align center
+			text-shadow: 1px 1px 3px  lighten($black,20%);
+			filter: dropshadow(color= lighten($black,20%), offx=1, offy=1);
+
 	&.team
 		color-palette($purple, $black, $purple, lighten($black,50%),$purple)
 		slide('../img/bg_white.jpg')
@@ -257,16 +190,22 @@ section
 	&.contact
 		color-palette($orange, $white, $white, lighten($orange,75%), $orange)
 		slide('../img/bg_team.jpg', no-repeat)
-		h2
-			margin-left 42vw
-		p
-			margin-left 42vw
+		article
+			margin-left 46vw
+			h2
+				text-shadow: 1px 1px 3px  lighten($black,20%);
+				filter: dropshadow(color= lighten($black,20%), offx=1, offy=1);
+		img
+			box-shadow: 2px 2px 10px lighten($black,25%);
+			filter: dropshadow(color= lighten($black,25%), offx=1, offy=1);
+			margin-bottom 30px;
+
+				
 footer
 	border-top 2px solid #fff
 	color #fff
 	clear both
-	margin -3.5em auto 0
-	max-width 1400px
+	margin -3em auto 0
 	opacity 0.7
 	width 90vw
 	
