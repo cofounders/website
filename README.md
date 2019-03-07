@@ -1,4 +1,9 @@
-website
-=======
+# Cofounders Pte Ltd Website
 
-Cofounders.sg website
+https://cf.sg
+
+## Development
+
+```shell
+$ npm run deploy
+```

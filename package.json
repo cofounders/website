@@ -1,25 +1,26 @@
 {
 	"name": "cfsg-website",
-	"description": "Cofounders.sg Website",
-	"version": "0.2.0",
-	"homepage": "http://www.cofounders.sg/",
-	"author": {
-		"name": "Sebastiaan Deckers",
-		"email": "seb@cofounders.sg"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/cofounders/website.git"
-	},
-	"licenses": [
-		{
-			"type": "GPL3",
-			"url": "http://www.gnu.org/licenses/gpl.html"
-		}
-	],
+	"description": "Cofounders Pte Ltd Website",
+	"private": true,
+	"version": "1.0.0",
+	"homepage": "https://cf.sg",
+	"repository": "github:cofounders/website",
+	"license": "GPL-3.0-only",
+	"author": "Sebastiaan Deckers <sebdeckers83@gmail.com>",
 	"dependencies": {
-		"node-build-script": "https://github.com/h5bp/node-build-script/tarball/master",
-		"stylus": "*"
+		"cpy-cli": "^2.0.0",
+		"mkdirp": "^0.5.1",
+		"rimraf": "^2.6.3",
+		"stylus": "^0.54.5"
 	},
-	"keywords": []
+	"scripts": {
+		"test": "echo Warning: No tests specified",
+		"clean": "rimraf public",
+		"prebuild": "npm it && npm run clean",
+		"build": "npm run build-assets && npm run build-stylus",
+		"build-assets": "cpy --no-overwrite --parents --cwd=source '**/*.{html,txt,jpg,png,svg,eot,ttf,woff}' '../public'",
+		"build-stylus": "mkdirp public/styles && stylus source/styles/app.styl --out public/styles",
+		"predeploy": "npm run build",
+		"deploy": "commonshost deploy"
+	}
 }
